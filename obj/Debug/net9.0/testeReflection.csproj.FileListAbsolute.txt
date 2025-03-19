@@ -1,0 +1,14 @@
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\bin\Debug\net9.0\testeReflection.exe
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\bin\Debug\net9.0\testeReflection.deps.json
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\bin\Debug\net9.0\testeReflection.runtimeconfig.json
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\bin\Debug\net9.0\testeReflection.dll
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\bin\Debug\net9.0\testeReflection.pdb
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.AssemblyInfoInputs.cache
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.AssemblyInfo.cs
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.csproj.CoreCompileInputs.cache
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.dll
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\refint\testeReflection.dll
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.pdb
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.genruntimeconfig.cache
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\ref\testeReflection.dll
