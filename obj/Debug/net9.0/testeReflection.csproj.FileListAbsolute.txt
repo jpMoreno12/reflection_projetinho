@@ -12,3 +12,4 @@ C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\refint\t
 C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.pdb
 C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.genruntimeconfig.cache
 C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\ref\testeReflection.dll
+C:\Users\joaom\OneDrive\Desktop\testes\testeReflection\obj\Debug\net9.0\testeReflection.sourcelink.json

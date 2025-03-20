@@ -17,20 +17,62 @@ namespace MyApp
                labelPlate: "SSJoao"
             );
 
-            Car civicV2 = new Car();
+            Car gol = new Car
+            (
+                chassi: "Gol bola",
+                id: 123,
+                color: "yellow"
+            );
 
-            Car novo = (Car)copyInstance(civic, "testeReflection");
-
-            Console.WriteLine(novo.Color);
-
-           /*  Car gol = new Car();
 
             Car novo = (Car)copyInstance(gol, "testeReflection");
-            Console.WriteLine(novo); */
-
-            User fabio = new User();
+            Console.WriteLine(novo.Color);
 
 
+            User fabio = new User
+            (
+                year: 30,
+                name: "Fabio"
+            );
+
+            User novoUsuario = (User)copyInstance(fabio, "testeReflection");
+
+            Console.WriteLine
+            (
+                novoUsuario.Name
+            );
+
+            Console.WriteLine("Crie uma Instancia da Classe Desejada: \nCar \nUser");
+            string selectedClass = Console.ReadLine()!;
+            Console.WriteLine();
+
+            switch (selectedClass)
+            {
+                case "Car":
+                Console.WriteLine();
+                    break;
+                case "User":
+                Console.WriteLine();
+                    break;
+                default:
+                Console.WriteLine("Classe selecionada nao existe");
+                    break;
+            }
+        }
+
+        static void createNewInstance(string className)
+        {
+            if(className == typeof(Car).ToString())
+            {
+                Console.WriteLine($"Digite o Nome da Instanca da Classe {className}: ");
+                string nameInstance = Console.ReadLine()!;
+
+                if(string.IsNullOrEmpty(nameInstance))
+                {
+                    Console.WriteLine("O nome está vazio. Digite um Nome válido");
+                }
+
+            }
         }
 
         static Object copyInstance(Object instance, string nameSpace)
@@ -40,45 +82,31 @@ namespace MyApp
 
             if (pathClass == instance.GetType().ToString())
             {
+                object newInstance = "";
+
                 var initialObj = instance.GetType();
+                // busca apenas membros da instancia em questao e nao membros staticos
+                //da classe
+                var propsClass = initialObj.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 
-                var propsClass = initialObj.GetProperties(BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+                Type[] objectOfInstance = propsClass.Select(p => p.PropertyType).ToArray();
 
-                object newInstance;
-                newInstance = "";
-                Type[] objectOfInstance = new Type[] {typeof(int), typeof(int), typeof(int), typeof(int), typeof(int)};
-                
-                ConstructorInfo? defaultConstructor = initialObj.GetConstructor(Type.EmptyTypes);
+                ConstructorInfo? constructorInfo = initialObj.GetConstructor(
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
+                objectOfInstance
+                );
 
-                /* if (defaultConstructor != null)
+                if (constructorInfo != null)
                 {
-                    newInstance = defaultConstructor.Invoke(null);
+
+                    object[] paramValues = propsClass.Select(p => p.GetValue(instance)!).ToArray();
+
+                    newInstance = constructorInfo.Invoke(paramValues);
+                    return newInstance;
                 }
                 else
                 {
-                    ConstructorInfo constructor = initialObj.GetConstructors().First();
-                    ParameterInfo[] parameters = constructor.GetParameters();
-
-                    foreach (var item in parameters)
-                    {
-                       Console.WriteLine(item) ;
-                    }
-
-                    object[] defaultValues = parameters.Select(p => GetDefaultValue(p.ParameterType)).ToArray()!;
-
-                    
-                    newInstance = constructor.Invoke(defaultValues);
-                } */
-
-
-                foreach (var propOfObj in propsClass)
-                {
-                    if (propOfObj.CanWrite)
-                    {
-                        object value = propOfObj.GetValue(instance)!;
-                        propOfObj.SetValue(newInstance, value);
-                    }
-
+                    Console.WriteLine("Construtor não encontrado!");
                 }
 
                 return newInstance;
@@ -90,11 +118,6 @@ namespace MyApp
             }
 
             return null!;
-        }
-
-        static object? GetDefaultValue(Type type)
-        {
-            return type.IsValueType ? Activator.CreateInstance(type) : null;
         }
 
     }

@@ -10,11 +10,7 @@ namespace testeReflection
         public int Year {get; set;}
         public string Name {get; set;}
 
-        public User()
-        { 
-            this.Year = 12;
-            this.Name = "joao";
-        }
+       
 
         public User(int year, string name)
         {
